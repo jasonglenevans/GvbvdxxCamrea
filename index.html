@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Gvbvdxx Camrea</title>
+        <link id="favicon" rel="icon" href="icon.png?n=1">
+    </head>
+    
+    <body style="background:#ccccca;">
+        <style>
+        button {
+            border:none;
+            border-radius:10px;
+            background:#969695;
+            cursor:pointer;
+        }
+        button:hover {
+            background:#ababab;
+        }
+        </style>
+        <div id="startingScreen" style="font-family:arial;position:fixed;top:50%;left:50%;width:600px;height:40px;margin-left:-300px;margin-top:-20px;">
+            <center><h1><b id="startText">Starting Camera...</b></h1><br><b>A popup will apear, press allow to start the camrea app.</b></center>
+        </div>
+        <div id="mainScreen" hidden>
+            <center style="font-family:arial;">
+            </center>
+                <div style="height:25px;">
+                    <img src="rec.png?n=1" height=25 id="REC" hidden>
+                </div>
+            <center>
+               <div style="background:black;width:calc(100vw - 100px); height:calc(100vh - 250px);border-radius:30px;">
+                    <video id="camVideo" style="width:100%; height:100%;border-radius:30px;" oncontextmenu="return false;"></video>
+                   <video id="recordingPreview" style="width:100%; height:100%;border-radius:30px;" hidden controls oncontextmenu="return false;"></video>
+               <img style="height:100%;border-radius:5px;" hidden id="picturePreview">
+               </div><br>
+                <div style="width:calc(100vw - 100px);border-bottom-style:solid;border-bottom-color:lightgrey;margin-bottom:20px;"></div>
+               <div style="">
+                   <button onclick="switchModesFunct();" id="switchModes">Switch Modes</button>
+                   
+                   <button onclick="toggleScale();">Toggle Camera Scale</button>
+                  
+                   <button onclick="window.micMuted = !(window.micMuted); if (micMuted) {this.innerHTML = 'Unmute Microphone';} else {this.innerHTML = 'Mute Microphone';}">Mute Microphone</button>
+                   
+                   <button onclick="toggleText();">Toggle Text</button>
+                  <!-- <button onclick="toggleFlip();">Toggle Flip</button> -->
+               </div><br>
+               <div style="width:calc(100vw - 100px);border-bottom-style:solid;border-bottom-color:lightgrey;margin-bottom:20px;"></div>
+                <div id="mainButtons">
+                <div id="videoMode" hidden>
+                    <h1 style="font-family:arial;">Video Mode</h1>
+                    <button onclick="recordButton();" id="HTMLRecordButton">Start<br>Recording</button>
+                </div>
+                <div id="pictureMode">
+                    <h1 style="font-family:arial;">Picture Mode</h1>
+               <button onclick="takePicture();" id="TakePictureButton">Take<br>Picture</button>
+                    </div>
+                <div id="screenRecordMode" hidden>
+                    <h1 style="font-family:arial;">Screen Record Mode</h1>
+                    <button onclick="selectScreen()">Select<br>Screen</button>
+               <button onclick="recordButton();" id="recordScreenButton">Record<br>Screen</button>
+                    </div>
+               
+                </div>
+                <div hidden id="afterPictureButtons">
+                    <h1 style="font-family:arial;">Save Photo?</h1>
+                    <button onclick="savePhoto();">Yes</button>
+                    <button onclick="cancelPhoto()">No</button>
+                </div>
+                <div hidden id="afterRecordingButtons">
+                    <h1 style="font-family:arial;">Save Video?</h1>
+                    <button onclick="saveVideo();">Yes</button>
+                    <button onclick="cancelVideo()">No</button>
+                </div>
+            </center>
+        </div>
+        <script src="camera.js?n=1"></script>
+    </body>
+    
+</html>
